@@ -16,6 +16,7 @@ class PostFactory extends Factory
         return [
             'title' => $this->faker->sentence,
             'content' => $this->faker->paragraph,
+            'image' => $this->faker->image
         ];
     }
 }

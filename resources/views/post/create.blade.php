@@ -18,14 +18,12 @@
                         <h3 class="text-white">Create Post</h3>
                     </div>
                     <div class="card-body">
-
                         @if(Session::has('success'))
                         <div class="alert alert-success">
                             {{Session::get('success')}}
                         </div>
                         @endif
-
-                        <form action="{{ route('posts.store') }}" method="POST">
+                        <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="title">Title:</label>
@@ -33,6 +31,10 @@
                                 @error('title')
                                 <span class="error text-danger">{{ $message }}</span>
                                 @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlFile1">Image</label>
+                                <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
                             </div>
                             <div class="form-group">
                                 <label for="content">Content:</label>
@@ -49,6 +51,22 @@
             </div>
         </div>
     </div>
+    <script>
+        function displaySelectedImage(event, elementId) {
+            const selectedImage = document.getElementById(elementId);
+            const fileInput = event.target;
+
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    selectedImage.src = e.target.result;
+                };
+
+                reader.readAsDataURL(fileInput.files[0]);
+            }
+        }
+    </script>
 </body>
 
 </html>

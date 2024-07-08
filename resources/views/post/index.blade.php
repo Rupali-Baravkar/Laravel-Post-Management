@@ -10,7 +10,7 @@
 <html>
 
 <head>
-    <title>Create Post</title>
+    <title> Post List</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,6 +44,7 @@
                             <th>ID</th>
                             <th>Title</th>
                             <th>Content</th>
+                            <th>Image</th>
                             <th width="280px">Action</th>
                         </tr>
                     </thead>
@@ -53,6 +54,10 @@
                             <td>{{ $post->id }}</td>
                             <td>{{ $post->title }}</td>
                             <td>{{ $post->content }}</td>
+                            <td>
+                                <img src="{{ $post->image ? asset('storage/' . $post->image) : '' }}" alt="" height="100" width="100">
+                            </td>
+
                             <td>
                                 <a href="{{ route('posts.show', $post->id) }}" class="btn btn-info">Show</a>
                                 <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary">Edit</a>
@@ -77,8 +82,8 @@
     <script>
         $(document).ready(function() {
             $('#example').DataTable({
-                "paging": false, 
-                "info": false, 
+                "paging": false,
+                "info": false,
                 "pageLength": 5, // Number of entries per page
                 "lengthChange": false,
             });

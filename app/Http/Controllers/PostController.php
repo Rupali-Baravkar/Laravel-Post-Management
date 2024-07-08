@@ -23,11 +23,18 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required',
             'content' => 'required',
+            'image' => 'required|file|mimes:jpg,svg,jpeg,png|max:2048'
         ]);
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $filePath = $file->store('images', 'public');
+        }
 
         Post::create([
             'title' => $request->title,
             'content' => $request->content,
+            'image' => $filePath
         ]);
         return redirect()->route('posts')->with('success', 'Post created successfully..!');
     }
@@ -47,11 +54,18 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required',
             'content' => 'required',
+            'image' => 'required|file|mimes:jpg,svg,jpeg,png|max:2048'
         ]);
 
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $filePath = $file->store('images', 'public');
+        }
+        
         $post->update([
             'title' => $request->title,
             'content' => $request->content,
+            'image' => $filePath
         ]);
         return redirect()->route('posts')->with('success', 'Post updated successfully..!');
     }
