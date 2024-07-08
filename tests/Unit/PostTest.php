@@ -18,7 +18,7 @@ class PostTest extends TestCase
 
     public function test_create_post()
     {
-        Storage::fake('public'); // Use fake storage for testing
+        Storage::fake('public');
 
         $file = UploadedFile::fake()->image('pexels-8moments-1266810.jpg');
         $post = Post::factory()->create([

@@ -1,11 +1,3 @@
-<!-- @if($errors->any())
-{!! implode('', $errors->all('<div class="text-danger">:message</div>')) !!}
-@endif
-@if(session('success'))
-<div class="alert alert-success">
-    {{ session('success') }}
-</div>
-@endif -->
 <!DOCTYPE html>
 <html>
 
@@ -84,7 +76,7 @@
             $('#example').DataTable({
                 "paging": false,
                 "info": false,
-                "pageLength": 5, // Number of entries per page
+                "pageLength": 5, 
                 "lengthChange": false,
             });
         });

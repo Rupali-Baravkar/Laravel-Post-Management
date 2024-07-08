@@ -22,11 +22,6 @@
         text-align: center;
         color: #333;
     }
-
-    /* .login-container form {
-        padding: 10%;
-    } */
-
     .btnSubmit {
         width: 50%;
         border-radius: 1rem;
@@ -84,9 +79,6 @@
                     <div class="form-group">
                         <input type="submit" class="btnSubmit" value="Login" />
                     </div>
-                    <!-- <div class="form-group">
-                        <a href="#" class="ForgetPwd">Forget Password?</a>
-                    </div> -->
                 </form>
             </div>
         </div>
