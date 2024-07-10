@@ -35,6 +35,9 @@
                             <div class="form-group">
                                 <label for="exampleFormControlFile1">Image</label>
                                 <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
+                                @error('image')
+                                <span class="error text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="content">Content:</label>
